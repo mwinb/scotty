@@ -53,6 +53,11 @@ body {
     color: white !important;
 }
 
+.uk-cover {
+    object-fit: fit !important;
+    width: auto;
+}
+
 .navLink {
     font-style: bold !important;
     font-weight: 5em !important;

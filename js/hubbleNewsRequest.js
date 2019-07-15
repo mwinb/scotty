@@ -31,7 +31,7 @@ $(document).ready(function() {
         $("#hubbleNewsFeedContainer").append(
           `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
               <div class="${alignLeft}">
-                  <img src="https:${result.thumbnail_retina}" alt="" uk-cover>
+                  <img class='fitImage' src="https:${result.thumbnail_retina}" alt="" uk-cover>
                   <canvas width="200" height="200"></canvas>
               </div>
               <div id='articleContent'>
