@@ -54,7 +54,7 @@ body {
 }
 
 .uk-cover {
-    object-fit: fit !important;
+    object-fit: fill !important;
     width: auto;
 }
 
