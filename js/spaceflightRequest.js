@@ -6,12 +6,11 @@ $(document).ready(function() {
     $.ajax({
       url: url,
       success: function(result) {
-        const alignRight = "articleImage uk-flex-last@s uk-card-media-right uk-cover-container";
         const alignLeft = "articleImage uk-card-media-left uk-cover-container"
         result.docs.forEach((element, count) => {
           $('#spaceFlightFeedContainer').append(
             `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                <div class="${count % 2 === 0 ? alignLeft : alignRight}">
+                <div class="${alignLeft}">
                     <img src="${element.featured_image}" alt="" uk-cover>
                     <canvas width="200" height="200"></canvas>
                 </div>
