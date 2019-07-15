@@ -22,7 +22,7 @@
     <nav id="navBarHome" class="uk-navbar-container" uk-navbar>
       <div class="uk-navbar-left">
         <ul id='navList' class="uk-navbar-nav">
-          <li class="uk-parent"><a id='showSlidesButton' class="navLink" href='#apoidCopyWrite' uk-scroll>Image of the Day</a></li>
+          <li class="uk-parent"><a id='showSlidesButton' class="navLink" href='#apoidCopyWrite' uk-scroll>Images</a></li>
           <li class="uk-parent"><a id='showSpaceFlightButton' class="navLink" href="#">Space Flight News</a></li>
           <li class="uk-parent"><a id='showHubbleNewsButton' class="navLink" href="#">Hubble News</a></li>
         </ul>
@@ -32,7 +32,7 @@
   <div id="apoidContainer" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
     uk-slideshow="animation: fade; min-height: 100%; max-height: 650px;">
     <ul id="slideContainer" class="uk-slideshow-items">
-      <li>
+      <li id='apoidLI'>
         <img id="apoidImage" src="" alt="" uk-cover>
         <video id="apoidVideo" src="" loop muted playsinline uk-video="autoplay: inview" uk-cover></video>
         <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
