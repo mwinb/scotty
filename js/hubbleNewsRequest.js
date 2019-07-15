@@ -1,11 +1,11 @@
 $(document).ready(function() {
   const articleListURL = "https://hubblesite.org/api/v3/news?page=all";
 
-
+  
   $.ajax({
     url: articleListURL,
     type: 'GET',
-    datatype: 'jsonp',
+    dataType: 'jsonp',
     success: function(result) {
       console.log(result);
       count = 0;
@@ -20,6 +20,7 @@ $(document).ready(function() {
   getArticleByID = (articleID, count) => {
     $.ajax({
       url: `https://hubblesite.org/api/v3/news_release/${articleID}`,
+      dataType: 'jsonp',
       success: function(result) {
         const alignRight =
           "articleImage uk-flex-last@s uk-card-media-right uk-cover-container";
