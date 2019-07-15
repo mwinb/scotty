@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   getArticleByID = (articleID, count) => {
     $.ajax({
-      url: `http://hubblesite.org/api/v3/news_release/${articleID}`,
+      url: `https://hubblesite.org/api/v3/news_release/${articleID}`,
       success: function(result) {
         const alignRight =
           "articleImage uk-flex-last@s uk-card-media-right uk-cover-container";
