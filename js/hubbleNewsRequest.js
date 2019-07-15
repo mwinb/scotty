@@ -1,19 +1,24 @@
 $(document).ready(function() {
   const articleListURL = "https://hubblesite.org/api/v3/news?page=all";
-
+  let idArray = [];
+  let totalShown = 0;
   
   $.ajax({
     url: articleListURL,
     type: 'GET',
     dataType: 'jsonp',
     success: function(result) {
-      console.log(result);
       count = 0;
-      while(count < 50)
+      while(count < 25)
       {
+      
         getArticleByID(result[count].news_id, count);
         count++;
+        totalShown++;
       }
+      result.forEach(element => {
+        idArray.push(element.news_id);
+      });
     }
   });
 
@@ -45,5 +50,18 @@ $(document).ready(function() {
       }
     });
   };
+
+  loadMore = () => {
+    let startCount = totalShown;
+    totalShown += 25;
+    while(startCount <= totalShown) {
+      getArticleByID(idArray[startCount]);
+      startCount++;
+    }
+  };
+
+  $('#showMore').click(() => {
+    loadMore();
+  });
   
 });
