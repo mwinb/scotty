@@ -9,7 +9,7 @@ $(document).ready(function() {
         const alignLeft = "articleImage uk-card-media-left uk-cover-container"
         result.docs.forEach((element, count) => {
           $('#spaceFlightFeedContainer').append(
-            `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+            `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-width-expand uk-margin" uk-grid>
                 <div class="${alignLeft}">
                     <img src="${element.featured_image}" alt="" uk-cover>
                     <canvas width="600px" height="600px"></canvas>

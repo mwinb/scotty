@@ -33,7 +33,7 @@ $(document).ready(function() {
               <div class="${alignLeft}">
                   <img class='fitImage' src="https:${result.thumbnail_retina}" alt="" uk-cover>
                   <canvas width="600px" height="600px"></canvas>
-              </div>
+                  </div>
               <div id='articleContent'>
                 <div class="uk-card-body">
                   <h3 class="articleTitle uk-card-title">${result.name}</h3>
