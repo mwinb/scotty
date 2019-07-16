@@ -4,32 +4,34 @@ $(document).ready(function() {
 
   var hubbleImagesUrl = "https://hubblesite.org/api/v3/images";
 
-  $.ajax({
-    url: url,
-    error: () => {
-      $("#apoidLI").remove();
-    },
-    success: result => {
-      if ("copyright" in result) {
-        $("#apoidCopyWrite").text("Image Credits: " + result.copyright);
-      } else {
-        $("#apoidCopyWrite").text("Image Credits: " + "Public Domain");
-      }
+  getApoid = () => {
+    $.ajax({
+      url: url,
+      error: () => {
+        $("#apoidLI").remove();
+      },
+      success: result => {
+        if ("copyright" in result) {
+          $("#apoidCopyWrite").text("Image Credits: " + result.copyright);
+        } else {
+          $("#apoidCopyWrite").text("Image Credits: " + "Public Domain");
+        }
+        console.log(result.media_type);
+        if (result.media_type === "video") {
+          $("#apoidImage").css("display", "none");
+          $("#apoidVideo").attr("src", `${result.url}?autoplay=1`);
+        } else {
+          $("#apoidVideo").css("display", "none");
+          $("#apoidImage").attr("src", result.url);
+        }
+        $("#apoidDescription").text(result.explanation);
+        $("#apoidTitle").text(result.title);
 
-      if (result.media_type == "video") {
-        $("#apoidImage").css("display", "none");
-        $("#apoidVideo").attr("src", result.url);
-      } else {
-        $("#apoidVideo").css("display", "none");
-        $("#apoidImage").attr("src", result.url);
-      }
-      $("#apoidDescription").text(result.explanation);
-      $("#apoidTitle").text(result.title);
-
-      getHubbleImages();
-    },
-    timeout: 3000
-  });
+        getHubbleImages();
+      },
+      timeout: 3000
+    });
+  }, getApoid();
 
   getHubbleImages = () => {
     $.ajax({
@@ -42,7 +44,7 @@ $(document).ready(function() {
         });
       }
     });
-  };
+  }, getHubbleImages();
 
   getImageByID = imageID => {
     $.ajax({
@@ -50,7 +52,6 @@ $(document).ready(function() {
       type: "GET",
       dataType: "jsonp",
       success: function(result) {
-        console.log(result.image_files.file_url);
         $("#slideContainer").append(
           `<li>
         <img src="https:${
@@ -61,12 +62,16 @@ $(document).ready(function() {
         <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
           <h3 class="uk-margin-remove">${result.name}</h3>
           <p class="uk-margin-remove">${result.mission}</p>
-          <p class='uk-margin-remove'>${result.description && result.description.length < 5000 ? 
-            result.description : result.collection}</p>
+          <p class='uk-margin-remove'>${
+            result.description && result.description.length < 5000
+              ? result.description
+              : result.collection
+          }</p>
         </div>
       </li>`
         );
       }
     });
   };
+
 });

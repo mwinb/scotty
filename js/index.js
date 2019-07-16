@@ -60,10 +60,15 @@ $(document).ready(function() {
     $('html, body').scrollTop( $(document).height() - $(window).height() );
   };
 
-  hideAllViews();
-  removeHighLight();
-  setSelectedButtonColor(navButtonIDs[0]);
-  $(containerIDs[0]).show();
-  scrollToBottom();
+
+  initPage = () => {
+    hideAllViews();
+    removeHighLight();
+    setSelectedButtonColor(navButtonIDs[0]);
+    $(containerIDs[0]).show();
+    scrollToBottom();
+  }, initPage();
+
+
 
 });
