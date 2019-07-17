@@ -5,7 +5,6 @@ $(document).ready(function() {
     $.ajax({
       url: url,
       success: function(result) {
-        console.log(result);
         const alignLeft = "articleImage uk-card-media-left uk-cover-container"
         result.docs.forEach((element, count) => {
           $('#spaceFlightFeedContainer').append(

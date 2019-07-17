@@ -38,7 +38,6 @@ $(document).ready(function() {
     }
     catch (error) {
       console.log(error);
-
     }
   }
 
@@ -60,6 +59,7 @@ $(document).ready(function() {
         </div>`
       )
   }
+
 
   function hubbleImageInit() {
     getAllArticles();

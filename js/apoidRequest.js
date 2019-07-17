@@ -23,8 +23,8 @@ $(document).ready(function() {
           ${result.media_type === "video" ? iFrame : image}
           <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
             <h3 id='apoidTitle' class="uk-margin-remove">${result.title}</h3>
-            <p id='apoidDescription' class="uk-margin-remove">${result.explanation}</p>
             <p id='apoidCopyWrite' class='uk-margin-remove'>${'copyright' in result ? result.copyright : 'public domain'}</p>
+            <a class="uk-link-muted" href="${result.url}">View More</a>
           </div>
         </li>`
       )
@@ -54,21 +54,17 @@ $(document).ready(function() {
       success: function(result) {
         $(slideContainer).append(
           `<li>
-        <img src="https:${
-          result.image_files[0].file_url.includes("png")
-            ? result.image_files[0].file_url
-            : result.image_files[1].file_url
-        }" alt="" uk-cover>
-        <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-          <h3 class="uk-margin-remove">${result.name}</h3>
-          <p class="uk-margin-remove">${result.mission}</p>
-          <p class='uk-margin-remove'>${
-            result.description && result.description.length < 5000
-              ? result.description
-              : result.collection
-          }</p>
-        </div>
-      </li>`
+          <img src="https:${
+            result.image_files[0].file_url.includes("png")
+              ? result.image_files[0].file_url
+              : result.image_files[1].file_url
+          }" alt="" uk-cover>
+          <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+            <h3 class="uk-margin-remove">${result.name}</h3>
+            <p class="uk-margin-remove">${result.mission}</p>
+            ${result.credits}
+          </div>
+        </li>`
         );
       }
     });

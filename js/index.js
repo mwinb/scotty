@@ -1,53 +1,55 @@
 $(document).ready(function() {
-  const navButtonIDs = ["#showSlidesButton", "#showSpaceFlightButton", "#showHubbleNewsButton"];
-  const containerIDs = ["#apoidContainer", "#spaceFlightFeedContainer", "#hubbleNewsFeedContainer"];
+  const navButtonIDs = {slideShowBtn: "#showSlidesButton", spaceFlightBtn: "#showSpaceFlightButton", hubbleDropDown:"#hubbleDropDown", hubbleNewsBtn: "#showHubbleNewsButton", esaFeedBtn: '#showESAButton', jwtFeedBtn: '#showJWTButton'};
+  const containerIDs = {apoid:"#apoidContainer", spaceFlight: "#spaceFlightFeedContainer", hubbleNewsFeed: "#hubbleNewsFeedContainer", esaFeed: '#esaFeedContainer', jwtFeed: '#jwtFeedContainer'};
   
-  $(navButtonIDs[0]).click(() => {
+  $(navButtonIDs['esaFeedBtn']).click(() => {
     removeHighLight();
-    showApoidContainer();
-    setSelectedButtonColor(navButtonIDs[0]);
+    showView(containerIDs['esaFeed']);
+    setSelectedButtonColor(navButtonIDs['hubbleDropDown']);
+  });
+
+  $(navButtonIDs['jwtFeedBtn']).click(() => {
+    removeHighLight();
+    showView(containerIDs['jwtFeed']);
+    setSelectedButtonColor(navButtonIDs['hubbleDropDown']);
+  });
+
+  $(navButtonIDs['slideShowBtn']).click(() => {
+    removeHighLight();
+    showView(containerIDs['apoid']);
+    setSelectedButtonColor(navButtonIDs['slideShowBtn']);
     scrollToBottom();
 
   });
 
-  $(navButtonIDs[1]).click(() => {
+  $(navButtonIDs['spaceFlightBtn']).click(() => {
     removeHighLight();
-    showSpaceFlightNews();
-    setSelectedButtonColor(navButtonIDs[1]);
+    showView(containerIDs['spaceFlight']);
+    setSelectedButtonColor(navButtonIDs['spaceFlightBtn']);
   });
 
-  $(navButtonIDs[2]).click(() => {
+  $(navButtonIDs['hubbleNewsBtn']).click(() => {
     removeHighLight();
-    showHubbleNews();
-    setSelectedButtonColor(navButtonIDs[2]);
+    showView(containerIDs['hubbleNewsFeed']);
+    setSelectedButtonColor(navButtonIDs['hubbleDropDown']);
   });
 
-  showHubbleNews = () => {
+  showView = (element) => {
     hideAllViews();
-    $(containerIDs[2]).show();
-  }
-
-  showSpaceFlightNews = () => {
-    hideAllViews();
-    $(containerIDs[1]).show();
-  };
-
-  showApoidContainer = () => {
-      hideAllViews();
-      $(containerIDs[0]).show();
+    $(element).show();
   }
 
   hideAllViews = () => {
-    containerIDs.forEach(element => {
-      $(element).hide();
-    });
+    for (let element in containerIDs) {
+      $(containerIDs[element]).hide();
+    }
   };
 
   removeHighLight = () => {
-      navButtonIDs.forEach(element => {
-        $(element).css('background-color', 'inherit');
-        $(element).css('color', 'white');
-      });
+      for(let element in navButtonIDs) {
+        $(navButtonIDs[element]).css('background-color', 'inherit');
+        $(navButtonIDs[element]).css('color', 'white');
+      }
   }
 
 
@@ -64,8 +66,8 @@ $(document).ready(function() {
   initPage = () => {
     hideAllViews();
     removeHighLight();
-    setSelectedButtonColor(navButtonIDs[0]);
-    $(containerIDs[0]).show();
+    setSelectedButtonColor(navButtonIDs['slideShowBtn']);
+    $(containerIDs['apoid']).show();
     scrollToBottom();
   }, initPage();
 
