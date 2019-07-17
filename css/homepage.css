@@ -60,6 +60,7 @@ body {
 .uk-cover {
     min-width: 100%;
     min-height: 100%;
+
     width: auto;
     height: auto;
 }
@@ -70,7 +71,7 @@ body {
 }
 
 .fitImageSpaceFlight {
-    object-fit: contain !important;
+    object-fit: scale-down !important;
 }
 
 
