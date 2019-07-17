@@ -5,7 +5,7 @@ async function getESAFeed () {
     let result
     try {
       result = await $.ajax({
-        url: `http://hubblesite.org/api/v3/external_feed/esa_feed?page=all`,
+        url: `https://hubblesite.org/api/v3/external_feed/esa_feed?page=all`,
         type: 'GET',
         dataType: 'jsonp',
       })

@@ -4,7 +4,7 @@ async function getJWTFeed () {
     let result
     try {
       result = await $.ajax({
-        url: `http://hubblesite.org/api/v3/external_feed/jwst_feed`,
+        url: `https://hubblesite.org/api/v3/external_feed/jwst_feed`,
         type: 'GET',
         dataType: 'jsonp',
       })
