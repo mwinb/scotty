@@ -1,39 +1,39 @@
 $(document).ready(function() {
-  var url =
-    "https://api.nasa.gov/planetary/apod?api_key=x6vBGH5z5njOqWKVMz5pcXKnBPCYDDgGMeQaGcPl";
+  const apoidUrl = 
+  'https://api.nasa.gov/planetary/apod?api_key=x6vBGH5z5njOqWKVMz5pcXKnBPCYDDgGMeQaGcPl';
+  const hubbleImagesUrl = 'https://hubblesite.org/api/v3/images';
+  
+  const slideContainer = '#slideContainer';
 
-  var hubbleImagesUrl = "https://hubblesite.org/api/v3/images";
+  async function getApoid() {
+    let result;
+    try {
+      result = await $.ajax({
+        url: apoidUrl,
+        type: 'GET',
+        timeout: 3000,
+      });
 
-  getApoid = () => {
-    $.ajax({
-      url: url,
-      error: () => {
-        $("#apoidLI").remove();
-      },
-      success: result => {
-        if ("copyright" in result) {
-          $("#apoidCopyWrite").text("Image Credits: " + result.copyright);
-        } else {
-          $("#apoidCopyWrite").text("Image Credits: " + "Public Domain");
-        }
-        console.log(result.media_type);
-        if (result.media_type === "video") {
-          $("#apoidImage").css("display", "none");
-          $("#apoidVideo").attr("src", `${result.url}?autoplay=1`);
-        } else {
-          $("#apoidVideo").css("display", "none");
-          $("#apoidImage").attr("src", result.url);
-        }
-        $("#apoidDescription").text(result.explanation);
-        $("#apoidTitle").text(result.title);
+      const iFrame = 
+      `<iframe id="apoidVideo" src="${result.url}?autoplay=1&mute=1}" type="text/html" width="640" height="385" frameborder="0" loop muted plays-inline allow='autoplay' uk-video="autoplay: inview" uk-cover></iframe>`;
+      const image = `<img id="apoidImage" src="${result.url}" alt="" uk-cover>`;
+      
+      $(slideContainer).append(
+       `<li id='apoidLI'>
+          ${result.media_type === "video" ? iFrame : image}
+          <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+            <h3 id='apoidTitle' class="uk-margin-remove">${result.title}</h3>
+            <p id='apoidDescription' class="uk-margin-remove">${result.explanation}</p>
+            <p id='apoidCopyWrite' class='uk-margin-remove'>${'copyright' in result ? result.copyright : 'public domain'}</p>
+          </div>
+        </li>`
+      )
+    } catch(error) {
+      console.log(error);
+    }
+  }
 
-        getHubbleImages();
-      },
-      timeout: 3000
-    });
-  }, getApoid();
-
-  getHubbleImages = () => {
+  function getHubbleImages() {
     $.ajax({
       url: hubbleImagesUrl,
       type: "GET",
@@ -44,15 +44,15 @@ $(document).ready(function() {
         });
       }
     });
-  }, getHubbleImages();
+  }
 
-  getImageByID = imageID => {
+  function getImageByID(imageID) {
     $.ajax({
       url: `https://hubblesite.org/api/v3/image/${imageID}`,
       type: "GET",
       dataType: "jsonp",
       success: function(result) {
-        $("#slideContainer").append(
+        $(slideContainer).append(
           `<li>
         <img src="https:${
           result.image_files[0].file_url.includes("png")
@@ -73,5 +73,12 @@ $(document).ready(function() {
       }
     });
   };
+
+  async function initApoid() {
+    await getApoid();
+    getHubbleImages();
+  } 
+  
+  initApoid();
 
 });
