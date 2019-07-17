@@ -10,7 +10,7 @@ $(document).ready(function() {
           $('#spaceFlightFeedContainer').append(
             `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-width-expand uk-margin" uk-grid>
                 <div class="${alignLeft}">
-                    <img class="fitImage" src="${element.featured_image}" alt="" uk-cover>
+                    <img class="fitImageSpaceFlight" src="${element.featured_image}" alt="" uk-cover>
                     <canvas width="600px" height="600px"></canvas>
                 </div>
                 <div id='articleContent'>

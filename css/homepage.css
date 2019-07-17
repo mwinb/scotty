@@ -69,4 +69,8 @@ body {
     font-weight: 5em !important;
 }
 
+.fitImageSpaceFlight {
+    object-fit: contain !important;
+}
+
 
