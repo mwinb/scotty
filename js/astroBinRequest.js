@@ -25,7 +25,7 @@ function populateAstroBin(result) {
       
       `<li>
       <img src="${
-        element.url_regular
+        element.url_hd
       }" alt="" uk-cover>
       <div class="uk-overlay uk-light uk-position-bottom uk-text-center uk-transition-slide-bottom">
       <h3 class="uk-margin-remove">${element.title}</h3>
