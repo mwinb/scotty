@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const url =
-      "https://spaceflightnewsapi.net/api/v1/articles?limit=100";
+      "https://spaceflightnewsapi.net/api/v1/articles?limit=200";
 
     $.ajax({
       url: url,

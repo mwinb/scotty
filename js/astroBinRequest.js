@@ -40,7 +40,7 @@ function populateAstroBin(result) {
 function sortByDate(left, right) {
   let leftDate = new Date(left.published);
   let rightDate = new Date(right.published);
-  return leftDate > rightDate ? 1 : leftDate < rightDate ? -1 : 0;
+  return leftDate < rightDate ? 1 : leftDate > rightDate ? -1 : 0;
 }
 
 });
