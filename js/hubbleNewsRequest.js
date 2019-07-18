@@ -16,6 +16,7 @@ $(document).ready(function() {
         articles.push(await getArticleByID(result[totalShown].news_id));
         totalShown++;
       }
+      console.log(articles.Date)
       articles.sort( sortByDate );
       articles.forEach((element) => {
         populateSlideShow(element);
@@ -66,8 +67,8 @@ $(document).ready(function() {
   } 
 
   function sortByDate(left, right) {
-    let leftDate = new Date(left);
-    let rightDate = new Date(right);
+    let leftDate = new Date(left.publication);
+    let rightDate = new Date(right.publication);
     return leftDate > rightDate ? 1 : leftDate < rightDate ? -1 : 0;
   }
 

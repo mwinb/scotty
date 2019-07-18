@@ -12,6 +12,7 @@ function getImageByID() {
     type: "GET",
     dataType: 'jsonp',
     success: function(result) {
+      result.objects.sort( sortByDate );
       populateAstroBin(result.objects);
     }
   });
@@ -35,4 +36,11 @@ function populateAstroBin(result) {
     );
   });
 }
+
+function sortByDate(left, right) {
+  let leftDate = new Date(left.published);
+  let rightDate = new Date(right.published);
+  return leftDate > rightDate ? 1 : leftDate < rightDate ? -1 : 0;
+}
+
 });
