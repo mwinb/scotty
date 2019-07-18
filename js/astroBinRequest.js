@@ -29,7 +29,7 @@ function populateAstroBin(result) {
       <div class="uk-overlay uk-light uk-position-bottom uk-text-center uk-transition-slide-bottom">
       <h3 class="uk-margin-remove">${element.title}</h3>
       <p class="uk-margin-remove">${element.published}</p>
-      <p>${element.user}</p>
+      <p><a href="https://www.astrobin.com/users/${element.user}">${element.user}</a></p>
       </div>
       </li>`
     );
