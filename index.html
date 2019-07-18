@@ -13,8 +13,10 @@
   <script src="js/apoidRequest.js"></script>
   <script src="js/spaceflightRequest.js"></script>
   <script src="js/hubbleNewsRequest.js"></script>
-  <script src="js/esaRequest.js"></script>
   <script src="js/jamesWebbRequest.js"></script>
+  <script src="js/hubbleLiveFeedRequest.js"></script>
+  <script src="js/esaRequest.js"></script>
+  <script src="js/astroBinRequest.js"></script>
   <script src="js/index.js"></script>
 
 </head>
@@ -24,18 +26,21 @@
     <nav id="navBarHome" class="uk-navbar-container" uk-navbar>
       <div class="uk-navbar-left">
         <ul id='navList' class="uk-navbar-nav">
-          <li class="uk-parent"><a id='showSlidesButton' class="navLink" href='#apoidCopyWrite' uk-scroll>Images</a></li>
+          <li class="uk-parent"><a id='showSlidesButton' class="navLink" href='#apoidCopyWrite' uk-scroll>Images</a>
+          </li>
+          <li class="uk-parent"><a id='showAstroBinButton' class="navLink" href="#">Astro Bin Gallery</a></li>
           <li class="uk-parent"><a id='showSpaceFlightButton' class="navLink" href="#">Space Flight News</a></li>
           <li>
             <a id="hubbleDropDown" href="#" class="navLink">Hubble</a>
             <div id="hubbleDropDownDiv" class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li class="uk-parent"><a id='showESAButton' class="navLink" href="#">ESA News</a></li>
-                    <li class="uk-parent"><a id='showJWTButton' class="navLink" href="#">James Web Feed</a></li>
-                    <li class="uk-parent"><a id='showHubbleNewsButton' class="navLink" href="#">Hubble News</a></li>
-                </ul>
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class="uk-parent"><a id='showHubbleLiveFeedButton' class="navLink" href="#">Live Feed</a></li>
+                <li class="uk-parent"><a id='showESAButton' class="navLink" href="#">ESA News</a></li>
+                <li class="uk-parent"><a id='showJWTButton' class="navLink" href="#">James Web Feed</a></li>
+                <li class="uk-parent"><a id='showHubbleNewsButton' class="navLink" href="#">Hubble News</a></li>
+              </ul>
             </div>
-        </li>
+          </li>
         </ul>
       </div>
     </nav>
@@ -44,16 +49,29 @@
     uk-slideshow="animation: fade; ratio: false">
     <ul id="slideContainer" class="uk-slideshow-items" uk-height-viewport="min-height: 300">
     </ul>
-
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-      uk-slideshow-item="previous"></a>
+      uk-slideshow-item="previous">
+    </a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-      uk-slideshow-item="next"></a>
+      uk-slideshow-item="next">
+    </a>
   </div>
   <div id='spaceFlightFeedContainer'></br></div>
   <div id='hubbleNewsFeedContainer'></br></div>
   <div id='esaFeedContainer'></br></div>
   <div id='jwtFeedContainer'></br></div>
+  <div id='hubbleLiveFeedContainer'></br></div>
+   <div id="astroBinGalleryContainer" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+    uk-slideshow="animation: fade; ratio: false">
+    <ul id="astroBinSlideContainer" class="uk-slideshow-items" uk-height-viewport="min-height: 300">
+    </ul>
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+      uk-slideshow-item="previous">
+    </a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+      uk-slideshow-item="next">
+    </a>
+  </div>
 </body>
 
 </html>

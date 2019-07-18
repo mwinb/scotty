@@ -74,4 +74,10 @@ body {
     object-fit: scale-down !important;
 }
 
+.astroBin {
+    display: inline-block;
+    position: relative;
+    margin-botton: 10px;
+}
+
 
