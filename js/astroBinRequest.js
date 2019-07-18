@@ -1,6 +1,6 @@
 $(document).ready(() => {
 const dayOffset = 14;
-const limit = 100;
+const limit = 200;
 const endDate = new Date();
 const formatEndDate = endDate.toISOString().split("T")[0];
 const startDate = new Date(endDate.getDate() - dayOffset).toISOString().split("T")[0];
@@ -12,7 +12,6 @@ function getImageByID() {
     type: "GET",
     dataType: 'jsonp',
     success: function(result) {
-      console.log(result.objects[0]);
       populateAstroBin(result.objects);
     }
   });
