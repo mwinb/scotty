@@ -22,7 +22,7 @@ body {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-#apoidContainer {
+#nasaSlideShow {
     display: block;
 
 }
@@ -74,10 +74,7 @@ body {
     object-fit: scale-down !important;
 }
 
-.astroBin {
-    display: inline-block;
-    position: relative;
-    margin-botton: 10px;
-}
+
+
 
 

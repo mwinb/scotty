@@ -17,6 +17,7 @@
   <script src="js/hubbleLiveFeedRequest.js"></script>
   <script src="js/esaRequest.js"></script>
   <script src="js/astroBinRequest.js"></script>
+  <script src="js/launchLibrary.js"></script>
   <script src="js/index.js"></script>
 
 </head>
@@ -26,10 +27,11 @@
     <nav id="navBarHome" class="uk-navbar-container" uk-navbar>
       <div class="uk-navbar-left">
         <ul id='navList' class="uk-navbar-nav">
-          <li class="uk-parent"><a id='showSlidesButton' class="navLink" href='#apoidCopyWrite' uk-scroll>Images</a>
+          <li class="uk-parent"><a id='showNasaButton' class="navLink" href='#' uk-scroll>Nasa</a>
           </li>
           <li class="uk-parent"><a id='showAstroBinButton' class="navLink" href="#">Astro Bin Gallery</a></li>
           <li class="uk-parent"><a id='showSpaceFlightButton' class="navLink" href="#">Space Flight News</a></li>
+          <li class="uk-parent"><a id='showLaunchLibraryButton' class="navLink" href="#">Launch Schedule</a></li>
           <li>
             <a id="hubbleDropDown" href="#" class="navLink">Hubble</a>
             <div id="hubbleDropDownDiv" class="uk-navbar-dropdown">
@@ -45,9 +47,10 @@
       </div>
     </nav>
   </div>
-  <div id="apoidContainer" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+
+  <div id="nasaSlideShow" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
     uk-slideshow="animation: fade; ratio: false">
-    <ul id="slideContainer" class="uk-slideshow-items" uk-height-viewport="min-height: 300">
+    <ul id="nasaContainer" class="nasaVideo uk-slideshow-items" uk-height-viewport="min-height: 300">
     </ul>
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
       uk-slideshow-item="previous">
@@ -56,11 +59,13 @@
       uk-slideshow-item="next">
     </a>
   </div>
+
   <div id='spaceFlightFeedContainer'></br></div>
   <div id='hubbleNewsFeedContainer'></br></div>
   <div id='esaFeedContainer'></br></div>
   <div id='jwtFeedContainer'></br></div>
   <div id='hubbleLiveFeedContainer'></br></div>
+  <div id='launchLibraryContainer'></br></div>
    <div id="astroBinGalleryContainer" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
     uk-slideshow="animation: fade; ratio: false">
     <ul id="astroBinSlideContainer" class="uk-slideshow-items" uk-height-viewport="min-height: 300">

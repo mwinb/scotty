@@ -5,7 +5,8 @@ $(document).ready(function() {
       result = await $.ajax({
         url: `https://hubblesite.org/api/v3/external_feed/esa_feed?page=all`,
         type: "GET",
-        dataType: "jsonp"
+        dataType: "jsonp",
+        cache: true,
       });
       populateESAFeed(result);
     } catch (error) {

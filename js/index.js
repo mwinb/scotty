@@ -1,5 +1,5 @@
 const navButtonIDs = {
-  slideShowBtn: "#showSlidesButton",
+  nasaBtn: "#showNasaButton",
   spaceFlightBtn: "#showSpaceFlightButton",
   hubbleDropDown: "#hubbleDropDown",
   hubbleNewsBtn: "#showHubbleNewsButton",
@@ -7,22 +7,28 @@ const navButtonIDs = {
   jwtFeedBtn: "#showJWTButton",
   hubbleLiveFeedBtn: "#showHubbleLiveFeedButton",
   astroBinBtn: "#showAstroBinButton",
+  launchLibBtn: "#showLaunchLibraryButton",
 };
 
 const containerIDs = {
-  apoid: "#apoidContainer",
+  nasa: "#nasaContainer",
   spaceFlight: "#spaceFlightFeedContainer",
   hubbleNewsFeed: "#hubbleNewsFeedContainer",
   esaFeed: "#esaFeedContainer",
   jwtFeed: "#jwtFeedContainer",
   hubbleLiveFeed: "#hubbleLiveFeedContainer",
   astroBinGallery: "#astroBinGalleryContainer",
+  launchLibrary: "#launchLibraryContainer",
 };
 
 function showView(element) {
-  hideAllViews();
   $(element).show();
 };
+
+function removeOldSelection() {
+  hideAllViews();
+  removeHighLight();
+}
 
 function hideAllViews() {
   for (let element in containerIDs) {
@@ -46,59 +52,68 @@ function scrollToBottom() {
   $("html, body").scrollTop($(document).height() - $(window).height());
 };
 
+function startWithNasa() {
+  setSelectedButtonColor(navButtonIDs.nasaBtn);
+  $(containerIDs.nasa).show();
+}
+
 function initPage() {
   hideAllViews();
   removeHighLight();
-  setSelectedButtonColor(navButtonIDs["slideShowBtn"]);
-  $(containerIDs["apoid"]).show();
+  startWithNasa();
 };
 
 $(document).ready(function() {
   initPage();
   scrollToBottom();
-
-  $(navButtonIDs["esaFeedBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["esaFeed"]);
-    setSelectedButtonColor(navButtonIDs["hubbleDropDown"]);
-  });
   
-  $(navButtonIDs["hubbleLiveFeedBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["hubbleLiveFeed"]);
-    setSelectedButtonColor(navButtonIDs["hubbleDropDown"]);
-  });
-  
-  $(navButtonIDs["jwtFeedBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["jwtFeed"]);
-    setSelectedButtonColor(navButtonIDs["hubbleDropDown"]);
-  });
-
-  
-  $(navButtonIDs["hubbleNewsBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["hubbleNewsFeed"]);
-    setSelectedButtonColor(navButtonIDs["hubbleDropDown"]);
-  });
-  
-  $(navButtonIDs["astroBinBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["astroBinGallery"]);
-    setSelectedButtonColor(navButtonIDs["astroBinBtn"]);
-  });
-  
-  $(navButtonIDs["slideShowBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["apoid"]);
-    setSelectedButtonColor(navButtonIDs["slideShowBtn"]);
+  $(navButtonIDs.nasaBtn).click(() => {
+    removeOldSelection()
+    showView(containerIDs.nasa);
+    setSelectedButtonColor(navButtonIDs.nasaBtn);
     scrollToBottom();
   });
-  
-  $(navButtonIDs["spaceFlightBtn"]).click(() => {
-    removeHighLight();
-    showView(containerIDs["spaceFlight"]);
-    setSelectedButtonColor(navButtonIDs["spaceFlightBtn"]);
+
+  $(navButtonIDs.astroBinBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.astroBinGallery);
+    setSelectedButtonColor(navButtonIDs.astroBinBtn);
   });
   
+  $(navButtonIDs.spaceFlightBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.spaceFlight);
+    setSelectedButtonColor(navButtonIDs.spaceFlightBtn);
+  });
+
+  $(navButtonIDs.launchLibBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.launchLibrary);
+    setSelectedButtonColor(navButtonIDs.launchLibBtn);
+  });
+  
+  $(navButtonIDs.hubbleLiveFeedBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.hubbleLiveFeed);
+    setSelectedButtonColor(navButtonIDs.hubbleDropDown);
+  });
+  
+  $(navButtonIDs.esaFeedBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.esaFeed);
+    setSelectedButtonColor(navButtonIDs.hubbleDropDown);
+  });
+
+  $(navButtonIDs.jwtFeedBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.jwtFeedBtn);
+    setSelectedButtonColor(navButtonIDs.hubbleDropDown);
+  });
+  
+  
+  $(navButtonIDs.hubbleNewsBtn).click(() => {
+    removeOldSelection();
+    showView(containerIDs.hubbleNewsFeed);
+    setSelectedButtonColor(navButtonIDs.hubbleDropDown);
+  });
 });

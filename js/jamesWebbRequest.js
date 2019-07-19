@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+  const containerID = "#jwtFeedContainer";
   async function getJWTFeed() {
     let result;
     try {
@@ -8,16 +8,16 @@ $(document).ready(function() {
         type: "GET",
         dataType: "jsonp"
       });
-      populateESAFeed(result);
+      populateJWTFeed(result);
     } catch (error) {
       console.log(error);
     }
   }
 
-  function populateESAFeed(result) {
+  function populateJWTFeed(result) {
     const alignLeft = "articleImage uk-card-media-left uk-cover-container";
     result.forEach(element => {
-      $("#jwtFeedContainer").append(
+      $(containerID).append(
         `<div class="spaceFlightCardContainer uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
       <div class="${alignLeft}">
       <img class='fitImage' src="https:${

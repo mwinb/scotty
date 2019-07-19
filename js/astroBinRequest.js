@@ -10,6 +10,7 @@ function getImageByID() {
   $.ajax({
     url: url,
     type: "GET",
+    cache: true,
     dataType: 'jsonp',
     success: function(result) {
       result.objects.sort( sortByDate );

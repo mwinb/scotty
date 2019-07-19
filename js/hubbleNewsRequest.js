@@ -10,6 +10,7 @@ $(document).ready(function() {
       result = await $.ajax({
         url: articleListURL,
         type: 'GET',
+        cache: true,
         dataType: 'jsonp',
       })
       while(totalShown < limit) {
@@ -67,8 +68,8 @@ $(document).ready(function() {
   } 
 
   function sortByDate(left, right) {
-    let leftDate = new Date(left.publication);
-    let rightDate = new Date(right.publication);
+    let leftDate = new Date(left);
+    let rightDate = new Date(right);
     return leftDate > rightDate ? 1 : leftDate < rightDate ? -1 : 0;
   }
 

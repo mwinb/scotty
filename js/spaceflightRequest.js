@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     $.ajax({
       url: url,
+      cache: true,
       success: function(result) {
         const alignLeft = "articleImage uk-card-media-left uk-cover-container"
         result.docs.forEach((element, count) => {
