@@ -106,7 +106,7 @@ $(document).ready(function() {
 
   $(navButtonIDs.jwtFeedBtn).click(() => {
     removeOldSelection();
-    showView(containerIDs.jwtFeedBtn);
+    showView(containerIDs.jwtFeed);
     setSelectedButtonColor(navButtonIDs.hubbleDropDown);
   });
   

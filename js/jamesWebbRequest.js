@@ -6,7 +6,8 @@ $(document).ready(function() {
       result = await $.ajax({
         url: `https://hubblesite.org/api/v3/external_feed/jwst_feed`,
         type: "GET",
-        dataType: "jsonp"
+        dataType: "jsonp",
+        casche: true,
       });
       populateJWTFeed(result);
     } catch (error) {
