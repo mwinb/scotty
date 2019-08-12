@@ -45,11 +45,11 @@ $(document).ready(function() {
     }
 
     function getLaunchPadLocation(element) {
-        let mapUrl = "#";
+        let mapUrl = "";
         let launchPad = element.location.pads[0];
 
         if(launchPad && launchPad.location != "") 
-            mapUrl = launchPad.mapUrl;
+            mapUrl = launchPad.mapURL;
 
         return mapUrl;
     };
